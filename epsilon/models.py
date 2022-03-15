@@ -29,6 +29,7 @@ class Question(models.Model):
     number = models.IntegerField(default=0)
     question = models.TextField()
     answer = models.TextField()
+    clue = models.TextField()
     date_created = models.DateTimeField(default=timezone.now)
     image = models.TextField(default='none.jpg')
 
@@ -64,10 +65,8 @@ class Profile(models.Model):
         max_length=6, choices=BRANCH_CHOICES, default='CSE')
     year = models.CharField(max_length=6, choices=YEAR_CHOICES, default='I')
 
+    def __str__(self):
+        return f'{self.user.username} Profile'
 
-def __str__(self):
-    return f'{self.user.username} Profile'
-
-
-def save(self, *args, **kwargs):
-    super().save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
