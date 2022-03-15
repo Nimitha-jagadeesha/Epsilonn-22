@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'b5u1h+q*__#6@a@gto7s)rz(*u$e#%a2g+(h^1ng62o17a6w7#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ieeeuvcesd.herokuapp.com']
 
@@ -119,12 +119,12 @@ USE_TZ = True
 AUTHENTICATION_BACKENDS = ('src.backends.EmailBackend',)
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-STATIC_ROOT =os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
-MEDIA_URL ='/media/'
-CRISPY_TEMPLATE_PACK ='bootstrap4'
-LOGOUT_REDIRECT_URL ='Home'
-LOGIN_REDIRECT_URL ='Arena'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+LOGOUT_REDIRECT_URL = 'Home'
+LOGIN_REDIRECT_URL = 'Arena'
 LOGIN_URL = 'login'
 django_heroku.settings(locals())

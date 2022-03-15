@@ -43,11 +43,9 @@
 </head>
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top"
-        style="background-color: black;">
-        <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" alt=""
-            style="width:60px;height:25px;"> &nbsp; <b
-                style="font-family: 'Righteous','sans-serif';font-size:larger">Dev-muse</b></a>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: black;">
+        <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" alt="" style="width:60px;height:25px;">
+            &nbsp; <b style="font-family: 'Righteous','sans-serif';font-size:larger">Dev-muse</b></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -86,7 +84,8 @@
         {% if done %}
         <div>
             <h4 class="text-center">Score : {{user.score.points}}</h4>
-            <h4 class="text-center">Congratulations for making it till the end. Thank you for your participation, see you in further events of IEEE UVCE Software Development SIG!</h4>
+            <h4 class="text-center">Congratulations for making it till the end. Thank you for your participation, see
+                you in further events of IEEE UVCE Software Development SIG!</h4>
         </div>
         {% else %}
         {% if messages %}
@@ -108,7 +107,8 @@
         {% if x %}
         <img class=" img-fluid mx-auto d-block" src="{{question.image }}" style="padding-right: 10px;" alt=" ">
         <br />
-        <p class="container text-center" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">{{question.question}}</p>
+        <p class="container text-center" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">
+            {{question.question}}</p>
         <form method="POST">
             <div class="input-group justify-content-center text-center">
                 <input id="msg" type="text" class="form-control col-md-8" name="answer"
@@ -118,15 +118,17 @@
             <div class="d-flex row justify-content-center row">
                 <button class="btn btn-outline-primary" style="margin: 10;" value="submitbutton" name="action"
                     type="submit">Submit</button>
-                    &nbsp;
-                    &nbsp;
-                    <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action" onclick="return confirm('Are you Sure?');"
-                    type="submit">Skip</button>
-
+                &nbsp;
+                &nbsp;
+                {% if skip %}
+                <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
+                    onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
+                {% endif %}
             </div>
         </form>
         {% else %}
-        <p class="container" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">{{question.question|safe|linebreaks}}</p>
+        <p class="container" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">
+            {{question.question|safe|linebreaks}}</p>
         <form method="POST">
             <div class="input-group justify-content-center text-center">
                 <input id="msg" type="text" class="form-control col-md-8" name="answer"
@@ -136,10 +138,10 @@
             <div class="d-flex row justify-content-center row">
                 <button class="btn btn-outline-primary" style="margin: 10;" value="submitbutton" name="action"
                     type="submit">Submit</button>
-                    &nbsp;
-                    &nbsp;
-                    <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"  onclick="return confirm('Are you Sure?');"
-                    type="submit">Skip</button>
+                &nbsp;
+                &nbsp;
+                <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
+                    onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
             </div>
         </form>
 
@@ -156,7 +158,9 @@
         {% endif %}
     </div>
     {% else %}
-    <div><h4 class="text-center">Please contact contest organisers to approve your account!</h4></div>
+    <div>
+        <h4 class="text-center">Please contact contest organisers to approve your account!</h4>
+    </div>
     {% endif %}
 
 </body>
