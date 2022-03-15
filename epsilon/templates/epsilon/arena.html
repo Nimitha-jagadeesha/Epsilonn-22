@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-muse</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-fixed/">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/aos.css'%}" />
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{%static 'img/logo.png'%}">
+    <link rel="stylesheet" href="{%static 'js/jquery.min.js'%}" />
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://kit.fontawesome.com/631054744f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Markazi+Text&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top"
+        style="background-color: black;">
+        <a class="navbar-brand" href="/"><img src="{% static 'img/logo.png' %}" alt=""
+            style="width:60px;height:25px;"> &nbsp; <b
+                style="font-family: 'Righteous','sans-serif';font-size:larger">Dev-muse</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Home' %}">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'Arena' %} ">Arena</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'LeaderBoard' %} ">Leaderboard</a>
+                </li>
+            </ul>
+            {% if request.user.is_authenticated %}
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'logout'%}">{{ user }} | Logout</a>
+            </div>
+            {% else %}
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="{% url 'login'%}">Sign In</a>
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+    </div>
+</header>
+
+<body>
+    <br /><br /><br />
+    {% if is_staff %}
+    <div class=" container content-section col-10 offset-1 offset-md-2 col-md-8" data-aos="fade-up"
+        data-aos-duration="2000">
+        {% if done %}
+        <div>
+            <h4 class="text-center">Score : {{user.score.points}}</h4>
+            <h4 class="text-center">Congratulations for making it till the end. Thank you for your participation, see you in further events of IEEE UVCE Software Development SIG!</h4>
+        </div>
+        {% else %}
+        {% if messages %}
+        <div class="d-flex justify-content-center">
+            <div class="col-md-8">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} text-center">
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {% endif %}
+        {% if display %}
+        <p class="text-center"><b>Score:
+                {{user.score.points}}</b></p>
+        <p class="text-center border-bottom mb-4"><b> Question: {{qnum}}</b></p>
+        {% if x %}
+        <img class=" img-fluid mx-auto d-block" src="{{question.image }}" style="padding-right: 10px;" alt=" ">
+        <br />
+        <p class="container text-center" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">{{question.question}}</p>
+        <form method="POST">
+            <div class="input-group justify-content-center text-center">
+                <input id="msg" type="text" class="form-control col-md-8" name="answer"
+                    placeholder=" Enter Your Answer">
+            </div>
+            <br />
+            <div class="d-flex row justify-content-center row">
+                <button class="btn btn-outline-primary" style="margin: 10;" value="submitbutton" name="action"
+                    type="submit">Submit</button>
+                    &nbsp;
+                    &nbsp;
+                    <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action" onclick="return confirm('Are you Sure?');"
+                    type="submit">Skip</button>
+
+            </div>
+        </form>
+        {% else %}
+        <p class="container" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">{{question.question|safe|linebreaks}}</p>
+        <form method="POST">
+            <div class="input-group justify-content-center text-center">
+                <input id="msg" type="text" class="form-control col-md-8" name="answer"
+                    placeholder=" Enter Your Answer">
+            </div>
+            <br />
+            <div class="d-flex row justify-content-center row">
+                <button class="btn btn-outline-primary" style="margin: 10;" value="submitbutton" name="action"
+                    type="submit">Submit</button>
+                    &nbsp;
+                    &nbsp;
+                    <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"  onclick="return confirm('Are you Sure?');"
+                    type="submit">Skip</button>
+            </div>
+        </form>
+
+        {% endif %}
+
+        <div>
+        </div>
+        {% else %}
+        <div>
+            <h4 class="text-center">Score : {{user.score.points}}</h4>
+            <h4 class="text-center">Contest has ended.</h4>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+    {% else %}
+    <div><h4 class="text-center">Please contact contest organisers to approve your account!</h4></div>
+    {% endif %}
+
+</body>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+<script>
+    $('.navbar-collapse a').click(function () {
+        $(".navbar-collapse").collapse('hide');
+    });
+
+</script>
+<script>
+    function disable(button) {
+        document.getElementById(button).disabled = true;
+
+    }
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+.fa {  
+    padding: 10px;  
+    text-align: center;  
+    margin: 5px 2px;  
+    font-size: 30px;  
+    width: 50px;  
+    
+  }  
+  .fa-facebook {  
+    background: #4267B2; 
+    border-radius: 50px;
+    color: white;  
+  }  
+  .fa-twitter {  
+    background: #1DA1F2; 
+    border-radius: 50px;
+    color: white;  
+  }  
+  .fa-envelope {  
+    background: #55ACEE; 
+    border-radius: 50px;
+    color: white;  
+  }  
+  .fa-linkedin {  
+    background: #007bb5;  
+    border-radius: 50px;
+    color: white;  
+  }  
+  .fa-instagram {  
+    background-image: linear-gradient(to bottom, rgb(64,93,230),rgb(88,81,219),rgb(131,58,180),rgb(193,53,132),rgb(225,48,108),rgb(253,29,29),rgb(245,96,64),rgb(247,119,55),rgb(252,175,69),rgb(255,220,128));
+    border-radius: 50px;
+    color: white;  
+  }  
+  .fa-youtube {  
+    background: #FF0000;  
+     border-radius: 50px;
+    color: white;  
+  }  
+  .fa:hover {  
+      color: rgb(0, 217, 255); 
+  }  
+  a:hover{
+    color: rgb(0, 217, 255); 
+  }
