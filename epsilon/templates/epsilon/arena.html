@@ -124,6 +124,10 @@
                 <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
                 {% endif %}
+                {% if clue %}
+                <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
+                    onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
+                {% endif %}
             </div>
         </form>
         {% else %}
@@ -143,6 +147,10 @@
                 {% if skip %}
                 <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
+                {% endif %}
+                {% if clue %}
+                <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
+                    onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
                 {% endif %}
             </div>
         </form>

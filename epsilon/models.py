@@ -46,6 +46,7 @@ class Score(models.Model):
     picked = ArrayField(models.IntegerField(), default=list)
     lifelin1 = models.IntegerField(default=0)
     lifeline2 = models.IntegerField(default=0)
+    displayClue = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.user.username} ({self.last_submit})'

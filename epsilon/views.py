@@ -69,7 +69,7 @@ def arena(request):
     number = request.user.score.question_number
     clue = False
     skip = False
-    clueVisible = False
+    clueVisible = request.user.score.displayClue
 
     if (Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2) > 0:
         clue = True
@@ -112,6 +112,13 @@ def arena(request):
             number=request.user.score.question_number).first()
         return redirect('Arena')
 
+    elif request.method == 'POST' and 'cluebutton' == request.POST.get('action'):
+        Score.objects.filter(user=request.user).update(
+            displayClue=True)
+        Score.objects.filter(user=request.user).update(
+            lifeline2=request.user.score.lifeline2+1)
+        return redirect('Arena')
+
     elif request.method == 'POST':
         answer = request.POST.get('answer')
         answer = answer.replace(" ", "")
@@ -141,6 +148,8 @@ def arena(request):
                 points=request.user.score.points+1)
             Score.objects.filter(user=request.user).update(
                 last_submit=timezone.now())
+            Score.objects.filter(user=request.user).update(
+                displayClue=False)
             question = Question.objects.filter(
                 number=request.user.score.question_number).first()
             return redirect('Arena')
