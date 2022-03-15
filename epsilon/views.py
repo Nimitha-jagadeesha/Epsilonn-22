@@ -103,6 +103,8 @@ def arena(request):
             number = random.choice(numlist)
 
         Score.objects.filter(user=request.user).update(
+            displayClue=False)
+        Score.objects.filter(user=request.user).update(
             question_number=number)
         Score.objects.filter(user=request.user).update(
             lifelin1=request.user.score.lifelin1+1)

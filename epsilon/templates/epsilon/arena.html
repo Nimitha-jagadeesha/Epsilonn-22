@@ -128,12 +128,12 @@
                 <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
                 {% endif %}
-
-                <br>
-                {% if clueVisible %}
-                <p>question.clue</p>
-                {% endif %}
             </div>
+            {% if clueVisible %}
+            <div>
+                question.clue
+            </div>
+            {% endif %}
         </form>
         {% else %}
         <p class="container" style="font-family: 'Markazi Text', serif;font-size:  1.5rem;">
@@ -157,11 +157,12 @@
                 <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
                 {% endif %}
-                <br>
-                {% if clueVisible %}
-                <p>question.clue</p>
-                {% endif %}
             </div>
+            {% if clueVisible %}
+            <div>
+                question.clue
+            </div>
+            {% endif %}
         </form>
 
         {% endif %}
