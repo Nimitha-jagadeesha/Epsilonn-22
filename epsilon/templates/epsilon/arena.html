@@ -103,6 +103,8 @@
         {% if display %}
         <p class="text-center"><b>Score:
                 {{user.score.points}}</b></p>
+        <p class="text-center"><b>You have
+                {{one}} skip and {{two}} clues left</b></p>
         <p class="text-center border-bottom mb-4"><b> Question: {{qnum}}</b></p>
         {% if x %}
         <img class=" img-fluid mx-auto d-block" src="{{question.image }}" style="padding-right: 10px;" alt=" ">
@@ -124,6 +126,8 @@
                 <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
                 {% endif %}
+                &nbsp;
+                &nbsp;
                 {% if clue %}
                 <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
@@ -131,7 +135,7 @@
             </div>
             {% if clueVisible %}
             <div>
-                question.clue
+                {{question.clue}}
             </div>
             {% endif %}
         </form>
@@ -153,6 +157,8 @@
                 <button class="btn btn-outline-primary" style="margin: 10;" value="skipbutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Skip</button>
                 {% endif %}
+                &nbsp;
+                &nbsp;
                 {% if clue %}
                 <button class="btn btn-outline-primary" style="margin: 10;" value="cluebutton" name="action"
                     onclick="return confirm('Are you Sure?');" type="submit">Clue</button>
@@ -160,7 +166,7 @@
             </div>
             {% if clueVisible %}
             <div>
-                question.clue
+                {{question.clue}}
             </div>
             {% endif %}
         </form>

@@ -70,7 +70,8 @@ def arena(request):
     clue = False
     skip = False
     clueVisible = request.user.score.displayClue
-
+    one = Lifeline.objects.all()[0].lifeline - request.user.score.lifelin1
+    two = Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2
     if (Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2) > 0:
         clue = True
     if (Lifeline.objects.all()[0].lifeline - request.user.score.lifelin1) > 0:
@@ -162,7 +163,7 @@ def arena(request):
                     x = True
             except:
                 x = False
-            return render(request, 'epsilon/arena.html', {'question': question, 'x': x, 'display': display, 'qnum': len(request.user.score.picked), 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible})
+            return render(request, 'epsilon/arena.html', {'question': question, 'x': x, 'display': display, 'qnum': len(request.user.score.picked), 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible, "one": one, "two": two})
     if question == None:
-        return render(request, 'epsilon/arena.html', {'done': True, 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible})
-    return render(request, 'epsilon/arena.html', {'question': question, 'x': x, 'display': display, 'qnum': len(request.user.score.picked), 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible})
+        return render(request, 'epsilon/arena.html', {'done': True, 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible, "one": one, "two": two})
+    return render(request, 'epsilon/arena.html', {'question': question, 'x': x, 'display': display, 'qnum': len(request.user.score.picked), 'is_staff': request.user.is_staff, "clue": clue, "skip": skip, "clueVisible": clueVisible, "one": one, "two": two})
