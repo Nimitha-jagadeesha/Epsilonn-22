@@ -72,7 +72,7 @@ def arena(request):
     clueVisible = request.user.score.displayClue
     one = Lifeline.objects.all()[0].lifeline - request.user.score.lifelin1
     two = Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2
-    if (Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2) > 0 and !clueVisible:
+    if (Lifeline.objects.all()[1].lifeline - request.user.score.lifeline2) > 0:
         clue = True
     if (Lifeline.objects.all()[0].lifeline - request.user.score.lifelin1) > 0:
         skip = True
