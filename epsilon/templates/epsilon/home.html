@@ -25,6 +25,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/toastr.min.css' %}" media="all">
     <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script>
 
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <style>
         body{
             scroll-behavior: smooth;
@@ -187,17 +192,17 @@
     <div class="pic">
         <br />
         <div>
-            <img class="image" src="{% static 'img/logo.png'%}" alt="" width="250px" height="250px" style="margin-top:25px;" />
+            <img class="image" src="{% static 'img/logo.png'%}" alt="" width="250px" height="250px" style="margin-top:25px;transform:translateY(20px);" data-aos="zoom-in"/>
          </div>
-        <h2 style="color:white;font-family: 'Righteous', sans-serif;font-size: 4.0em; text-shadow: 0px 4px 0px rgb(25, 25, 26);margin-top:10px;margin-bottom: 25px;" class="text-center">Epsilon
+        <h2 style="color:white;font-family: 'Righteous', sans-serif;font-size: 4.0em; text-shadow: 0px 4px 0px rgb(25, 25, 26);margin-top:10px;margin-bottom: 25px;" class="text-center" data-aos="fade-up">Epsilon
         </h2>
         <div class="div1">
-            <a href="#ins" style="font-size:20px;"> <button  id="but">Instructions</button></a> 
+            <a href="#ins" style="font-size:20px;"> <button  id="but" data-aos="fade-up">Instructions</button></a> 
         </div>
        
         <!-- <p id="demo" class="font-weight-bold text-center" style="color:white;"></p> -->
     
-        <div style="color:white; font-family: 'KoHo', sans-serif;font-size: 1.0em; " class="text-center">
+        <div style="color:white; font-family: 'KoHo', sans-serif;font-size: 1.0em; " class="text-center" data-aos="fade-up">
             <img width="150px" height="150px" src="{% static 'img/treasure.gif'%}" alt="" />
             <br>
             Online Treasure Hunt
@@ -211,7 +216,7 @@
 
 
     </div>
-    <section id="ins">
+    <section id="ins" data-aos="fade-up">
     <h2 class="col-12 text-center" style="font-family: 'KoHo', sans-serif; font-size: 2.5em;color: black;">Rules
     </h2>
     <ul class="offset-1 col-11" style="font-family: 'KoHo', sans-serif; font-size:1.2em ;">
