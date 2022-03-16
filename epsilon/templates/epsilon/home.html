@@ -116,7 +116,7 @@
         #but
         {
             color:white;
-            border:2px solid rgb(44, 67, 173);
+            border:2px solid rgb(255, 251, 4);
             height: 55px;
             width:130px;
             font-size:20px;
@@ -125,10 +125,7 @@
             border-radius: 10px;
          
         }
-      .div1
-      {
-          
-      }
+  
     </style>
     <style>
         .marq {
@@ -163,20 +160,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'Arena' %} ">Arena</a>
+                    <a class="nav-link active" href="{% url 'Arena' %} ">Arena</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'LeaderBoard' %} ">Leaderboard</a>
+                    <a class="nav-link active" href="{% url 'LeaderBoard' %} ">Leaderboard</a>
                 </li>
             </ul>
             {% if request.user.is_authenticated %}
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'logout'%}">{{ user }} | Logout</a>
+                <a class="nav-item nav-link active" href="{% url 'logout'%}">{{ user }} | Logout</a>
             </div>
             {% else %}
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="{% url 'login'%}">Sign In</a>
+                <a class="nav-item nav-link active" href="{% url 'login'%}">Sign In</a>
             </div>
             {% endif %}
         </div>
@@ -190,7 +187,7 @@
     <div class="pic">
         <br />
         <div>
-            <img class="image" src="{% static 'img/logo.png'%}" alt="" width="250px" height="250px" />
+            <img class="image" src="{% static 'img/logo.png'%}" alt="" width="250px" height="250px" style="margin-top:-10px" />
          </div>
         <h2 style="color:white;font-family: 'Righteous', sans-serif;font-size: 4.0em; text-shadow: 0px 4px 0px rgb(25, 25, 26);margin-top:10px;margin-bottom: 25px;" class="text-center">Epsilon
         </h2>
