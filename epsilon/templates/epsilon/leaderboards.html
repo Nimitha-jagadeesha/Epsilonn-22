@@ -71,10 +71,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Home' %}">Home </a>
+                        <a class="nav-link active" href="{% url 'Home' %}">Home </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'Arena' %} ">Arena</a>
+                        <a class="nav-link active" href="{% url 'Arena' %} ">Arena</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="{% url 'LeaderBoard' %} ">Leaderboard</a>
@@ -82,11 +82,11 @@
                 </ul>
                 {% if request.user.is_authenticated %}
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'logout'%}">{{ user }} | Logout</a>
+                    <a class="nav-item nav-link active" href="{% url 'logout'%}">{{ user }} | Logout</a>
                 </div>
                 {% else %}
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="{% url 'login'%}">Sign In</a>
+                    <a class="nav-item nav-link active" href="{% url 'login'%}">Sign In</a>
                 </div>
                 {% endif %}
             </div>
