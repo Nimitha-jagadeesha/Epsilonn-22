@@ -93,7 +93,7 @@ def arena(request):
     except:
         pass
     if request.method == 'POST' and 'skipbutton' == request.POST.get('action'):
-        if two == 0:
+        if one == 0:
             return redirect('Arena')
         numbers = Score.objects.filter(user=request.user).first()
         numbers = numbers.picked
