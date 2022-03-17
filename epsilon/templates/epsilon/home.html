@@ -48,7 +48,7 @@
             justify-content:center;
             align-items: center;
             flex-direction: column;
-            background: url({% static 'img/bg.webp' %});
+            background: url({% static 'img/bg2.jpg' %});
             background-repeat: no-repeat;
             background-size: cover;
             height: 100vh;
@@ -57,6 +57,14 @@
             box-shadow:  0px 100vh 0px rgba(0,0,0,0.5) inset;
         
 
+        }
+
+        @media screen and (max-height:670px)
+        {
+            .pic 
+            {
+                height:670px;
+            }
         }
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
