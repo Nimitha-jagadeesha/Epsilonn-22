@@ -118,6 +118,8 @@ def arena(request):
         return redirect('Arena')
 
     elif request.method == 'POST' and 'cluebutton' == request.POST.get('action'):
+        if two == 0:
+            return redirect('Arena')
         Score.objects.filter(user=request.user).update(
             displayClue=True)
         Score.objects.filter(user=request.user).update(

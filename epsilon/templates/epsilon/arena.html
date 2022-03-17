@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=KoHo:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
-    
+
 
     <style>
         .bd-placeholder-img {
@@ -87,7 +87,7 @@
         <div>
             <h4 class="text-center">Score : {{user.score.points}}</h4>
             <h4 class="text-center">Congratulations for making it till the end. Thank you for your participation, see
-                you in further events of IEEE UVCE Software Development SIG!</h4>
+                you in further events of IMPETUS 22!</h4>
         </div>
         {% else %}
         {% if messages %}
@@ -106,7 +106,7 @@
         <p class="text-center"><b>Score:
                 {{user.score.points}}</b></p>
         <p class="text-center"><b>You have
-                {{one}} skip and {{two}} clues left</b></p>
+                {{one}} skip left</b></p>
         <p class="text-center border-bottom mb-4"><b> Question: {{qnum}}</b></p>
         {% if x %}
         <img class=" img-fluid mx-auto d-block" src="{{question.image }}" style="padding-right: 10px;" alt=" ">
