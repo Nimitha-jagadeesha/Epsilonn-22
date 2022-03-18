@@ -7,6 +7,7 @@ from django.contrib.postgres.fields import ArrayField
 BRANCH_CHOICES = (
     ('CSE', 'CSE'),
     ('ISE', 'ISE'),
+    ('AI-ML', 'AI-ML'),
     ('ECE', 'ECE'),
     ('EEE', 'EEE'),
     ('MECH', 'MECH'),
